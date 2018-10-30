@@ -31,13 +31,13 @@ languages = {
 }
 
 def reformat_languages(languages)
-  new_hash = {}
-  languages.each do |key, nested_hash|
-    nested_hash.each do |name, props|
-      new_hash[name] ||= props
-      new_hash[name][:style] ||= []
-      new_hash[name][:style] << key
+  new_hash = {} #empty hash
+  languages.each do |key, nested_hash| #iterate over each key/value pair level 1
+    nested_hash.each do |name, props| #iterate over  each lever 2 key/value pairs
+      new_hash[name] ||= props #add the language{type} to the hash if it exists or equals the attribute
+      new_hash[name][:style] ||= [] #add a new style attribute to the language
+      new_hash[name][:style] << key #add the key from level 1 to the style attribute
     end
   end
-  new_hash
+  new_hash #return hash
 end

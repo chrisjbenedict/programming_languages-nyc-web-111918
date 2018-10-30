@@ -36,7 +36,7 @@ def reformat_languages(languages)
      nested_hash.each do |name, props|
        new_hash[name] ||= props
        new_hash[name][:style] ||= []
-       new_hash[name][:style] << type
+       new_hash[name][:style] << key
      end
    end
    new_hash
